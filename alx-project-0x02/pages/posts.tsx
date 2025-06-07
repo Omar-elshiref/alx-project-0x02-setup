@@ -1,6 +1,5 @@
 import Header from '@/components/layout/Header'
 import React from 'react'
-// import { useEffect, useState } from 'react'
 import { PostProps } from '@/interfaces'
 import PostCard from '@/components/common/PostCard'
 
