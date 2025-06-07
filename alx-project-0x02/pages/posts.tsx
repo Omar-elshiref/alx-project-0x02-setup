@@ -1,30 +1,17 @@
 import Header from '@/components/layout/Header'
 import React from 'react'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 import { PostProps } from '@/interfaces'
 import PostCard from '@/components/common/PostCard'
 
-const Posts = () => {
-  const [postsCard, setPostsCard] = useState<PostProps[]>([])
-  const [loading, setLoading] = useState(true)
+const Posts: React.FC<{ postsCard: PostProps[] }> = ({ postsCard }) => {
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(res => res.json())
-      .then(data => {
-        setPostsCard(data.slice(0, 10)) // عرض أول 10 بوستات فقط
-        setLoading(false)
-      })
-  }, [])
-  console.log(postsCard)
+
   return (
     <>
     <Header />
       <div className="flex flex-wrap justify-center">
-        {loading ? (
-          <div className="text-white mt-8">Loading...</div>
-        ) : (
-          postsCard.map(post => (
+    {postsCard.map(post => (
             <PostCard
               key={post.id}
               id={post.id}
@@ -33,11 +20,25 @@ const Posts = () => {
               content={post.body}
               body={post.body}
             />
-          ))
-        )}
+          ))}
+          
+        
       </div>
+      
     </>
   )
+}
+
+// getStaticProps لجلب البيانات وقت البناء
+export async function getStaticProps() {
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const postsCard = await res.json();
+
+  return {
+    props: {
+      postsCard, // بنرجع البوستات كـ props للصفحة
+    },
+  };
 }
 
 export default Posts
