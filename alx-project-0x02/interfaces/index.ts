@@ -15,3 +15,11 @@ export interface ButtonProps {
   size: 'small' | 'medium' | 'large';
   children?: React.ReactNode;
 }
+
+export interface PostProps {
+    id: number;
+userId: number;
+  title: string;
+  content: string;
+  body: string;
+}
