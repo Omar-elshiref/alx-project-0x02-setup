@@ -1,5 +1,5 @@
 import React from 'react'
-import {CardProps} from '@/interfaces/index'
+import { type CardProps } from '@/interfaces/index'
 import Image from 'next/image'
 
 
