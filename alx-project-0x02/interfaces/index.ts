@@ -9,3 +9,8 @@ export interface PostModalProps {
   onClose: () => void
   onSubmit: (data: Omit<CardProps, 'image'>) => void
 }
+
+export interface ButtonProps {
+  shape: string;
+  size: string;
+}
