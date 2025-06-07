@@ -1,17 +1,12 @@
-import Button from '@/components/common/Button'
 import React from 'react'
+import Button from '@/components/common/Button'
 
-const about = () => {
-  return (
-    <div>
-        <h1>about</h1>
-       <section className='flex flex-wrap gap-4 p-4'>
-        <Button shape='sm' size='small'/>
-        <Button shape='md' size='medium'/>
-        <Button shape='full' size='large'/>
-       </section>
-    </div>
-  )
-}
+const AboutPage = () => (
+  <div className="space-x-4 p-8">
+    <Button size="small" shape="rounded-sm">Small Rounded-sm</Button>
+    <Button size="medium" shape="rounded-md">Medium Rounded-md</Button>
+    <Button size="large" shape="rounded-full">Large Rounded-full</Button>
+  </div>
+)
 
-export default about
+export default AboutPage

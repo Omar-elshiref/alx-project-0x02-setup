@@ -11,6 +11,7 @@ export interface PostModalProps {
 }
 
 export interface ButtonProps {
-  shape: string;
-  size: string;
+  shape: 'rounded-sm' | 'rounded-md' | 'rounded-full';
+  size: 'small' | 'medium' | 'large';
+  children?: React.ReactNode;
 }
